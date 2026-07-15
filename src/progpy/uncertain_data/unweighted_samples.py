@@ -23,7 +23,7 @@ class UnweightedSamples(UncertainData, UserList):
 
     def __init__(self, samples: list = [], _type=dict):
         super().__init__(_type)
-        if isinstance(samples, dict) or isinstance(samples, DictLikeMatrixWrapper):
+        if isinstance(samples, dict) or isinstance(samples, DictLikeMatrixWrapper) or hasattr(samples, 'keys'):
             # Is in form of {key: [value, ...], ...}
             # Convert to array of samples
             if len(samples.keys()) == 0:
